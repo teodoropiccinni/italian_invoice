@@ -47,7 +47,7 @@ bench console
 
 import frappe
 from italian_invoice.providers.wolters_kluwer_provider import WoltersKluwerProvider
-from italian_invoice.api import wolters_kluwer
+from italian_invoice.api.sdi_provider import wolters_kluwer
 
 # Testa import
 provider = WoltersKluwerProvider()

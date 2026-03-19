@@ -8,7 +8,6 @@ import logging
 
 import frappe
 from frappe import whitelist
-from frappe.exceptions import Forbidden
 
 from italian_invoice.utilities.fatture import get_sdi_provider
 
@@ -277,7 +276,10 @@ def authorize_wolters_kluwer(company_name: str) -> dict:
 		
 		# Verifica permessi utente
 		if not frappe.has_permission("Company", ptype="read", doc=company_name):
-			raise Forbidden(f"Non hai permesso di accedere alla company {company_name}")
+			frappe.throw(
+				f"Non hai permesso di accedere alla company {company_name}",
+				frappe.PermissionError,
+			)
 		
 		company = frappe.get_doc("Company", company_name)
 		provider = get_sdi_provider(company_name)
@@ -336,7 +338,10 @@ def test_wolters_kluwer_connection(company_name: str) -> dict:
 			frappe.throw(f"Company non trovata: {company_name}")
 		
 		if not frappe.has_permission("Company", ptype="read", doc=company_name):
-			raise Forbidden(f"Non hai permesso di accedere alla company {company_name}")
+			frappe.throw(
+				f"Non hai permesso di accedere alla company {company_name}",
+				frappe.PermissionError,
+			)
 		
 		provider = get_sdi_provider(company_name)
 		company = frappe.get_doc("Company", company_name)

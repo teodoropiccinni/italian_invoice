@@ -77,7 +77,7 @@ print("✓ Company caricata")
 3. **Abilita Wolters Kluwer**
    - Scroll fino alla sezione SDI
    - "Provider SDI" → seleziona "Wolters Kluwer"
-   - Appare la sezione "Wolters Kluwer" con i campi
+   - Appare la sezione "Wolters Kluwer"
 
 4. **Compila Credenziali**
    ```

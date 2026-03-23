@@ -1235,7 +1235,7 @@
   "name": "Company-custom_sdi_provider",
   "no_copy": 0,
   "non_negative": 0,
-  "options": "OpenAPI\nManual\nCustom",
+  "options": "OpenAPI\nWolters Kluwer\nManual\nCustom",
   "permlevel": 0,
   "placeholder": null,
   "precision": "",

@@ -40,10 +40,15 @@ bench execute frappe.client.insert --args='{"doctype":"Custom Field", "json": ".
 ```
 
 ### Fase 3: Verifica Installazione
+Set env vars as per your environment:
+```
+set HOSTNAME=yourappurl.com
+set COMPANY_NAME="Your company Srl"
+```
 
 ```python
 # In ERPNext console
-bench console
+bench --site $HOSTNAME console
 
 import frappe
 from italian_invoice.providers.wolters_kluwer_provider import WoltersKluwerProvider
@@ -55,7 +60,7 @@ print("✓ Provider caricato con successo")
 
 # Testa endpoint
 from frappe import get_doc
-company = get_doc("Company", "Company Name")
+company = get_doc("Company", "$COMPANY_NAME")
 print("✓ Company caricata")
 ```
 
